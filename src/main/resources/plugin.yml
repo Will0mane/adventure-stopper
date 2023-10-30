@@ -1,0 +1,5 @@
+name: Adventure Stopper
+version: '${version}'
+main: me.will0mane.plugins.adventurestopper.AdventureStopper
+authors: [ Will0mane ]
+description: Enables command to automatically stop all instances of adventure with right credential
