@@ -4,7 +4,7 @@ import me.will0mane.lib.uranus.worker.Worker;
 import me.will0mane.lib.uranus.worker.task.WorkerTask;
 import me.will0mane.plugins.adventure.api.modules.secure.credentials.Credential;
 import me.will0mane.plugins.adventure.api.plugin.Adventure;
-import org.bukkit.entity.Player;
+import me.will0mane.plugins.adventure.bukkit.commands.CommandUserBukkit;
 import revxrsal.commands.annotation.Command;
 import revxrsal.commands.annotation.Default;
 import revxrsal.commands.annotation.Flag;
@@ -25,24 +25,23 @@ public class StopperCommands {
 
     @Subcommand("now")
     @CommandPermission("adventure.stopper.now")
-    public void now(BukkitCommandActor actor, long credentials, @Default("all") @Flag String server) {
-        Player player = actor.requirePlayer();
-        stop(player, server, Credential.of(credentials));
+    public void now(BukkitCommandActor actor, long credentials, @Default("ALL") @Flag String server) {
+        stop(new CommandUserBukkit(actor), server, Credential.of(credentials));
     }
 
     @Subcommand("after")
     @CommandPermission("adventure.stopper.after")
-    public void after(BukkitCommandActor actor, long credentials, long ticks, @Default("all") @Flag String server) {
-        Player player = actor.requirePlayer();
-        player.sendMessage("Server will stop in " + ticks + " ticks...");
+    public void after(BukkitCommandActor actor, long credentials, long ticks, @Default("ALL") @Flag String server) {
+        CommandUserBukkit bukkit = new CommandUserBukkit(actor);
+        bukkit.message("Server will stop in " + ticks + " ticks...");
 
         worker.later(workerTaskWorker -> {
-            stop(player, server, Credential.of(credentials));
+            stop(bukkit, server, Credential.of(credentials));
         }, ticks);
     }
 
-    private void stop(Player player, String server, Credential credential) {
-        player.sendMessage("Sending shutdown message...");
+    private void stop(CommandUserBukkit player, String server, Credential credential) {
+        player.message("Sending shutdown message...");
         adventure.instanceManager().shutdown(server, credential);
     }
 

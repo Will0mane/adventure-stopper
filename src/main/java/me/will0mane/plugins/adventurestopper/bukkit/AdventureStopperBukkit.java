@@ -1,4 +1,4 @@
-package me.will0mane.plugins.adventurestopper;
+package me.will0mane.plugins.adventurestopper.bukkit;
 
 import me.will0mane.plugins.adventure.api.commands.lamp.LampWrapper;
 import me.will0mane.plugins.adventure.api.communication.handler.AddonMessageHandler;
@@ -8,13 +8,14 @@ import me.will0mane.plugins.adventurestopper.lamp.StopperCommands;
 import org.jetbrains.annotations.NotNull;
 import revxrsal.commands.bukkit.BukkitCommandHandler;
 
-public final class AdventureStopper extends AdventureAddonBukkit {
+public final class AdventureStopperBukkit extends AdventureAddonBukkit {
 
     private final AddonMessageHandler handler = new DefaultBukkitHandler(this);
-    private final LampWrapper lampWrapper = new LampWrapper(BukkitCommandHandler.create(this));
+    private LampWrapper lampWrapper;
 
     @Override
     public void enable() {
+        lampWrapper = new LampWrapper(BukkitCommandHandler.create(this));
         lampWrapper.getHandler().register(new StopperCommands());
     }
 
