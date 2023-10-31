@@ -7,10 +7,14 @@ import me.will0mane.plugins.adventure.api.commands.lamp.LampWrapper;
 import me.will0mane.plugins.adventure.api.communication.handler.AddonMessageHandler;
 import me.will0mane.plugins.adventure.velocity.addon.AdventureAddonVelocity;
 import me.will0mane.plugins.adventure.velocity.addon.handler.def.DefaultVelocityHandler;
+import me.will0mane.plugins.adventurestopper.lamp.StopperCommandsVel;
 import org.jetbrains.annotations.NotNull;
 import revxrsal.commands.velocity.VelocityCommandHandler;
 
+import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 
 @Plugin(id = "adventure_stopper",
         name = "AdventureStopper",
@@ -33,6 +37,7 @@ public class AdventureStopperVelocity extends AdventureAddonVelocity {
     @Override
     public void enable() {
         lampWrapper = new LampWrapper(VelocityCommandHandler.create(this, server));
+        lampWrapper.getHandler().register(new StopperCommandsVel());
     }
 
     @Override
@@ -45,6 +50,15 @@ public class AdventureStopperVelocity extends AdventureAddonVelocity {
 
     @Override
     public InputStream getResource(String s) {
+        try {
+            URL url = getClass().getClassLoader().getResource(s);
+            if (url == null) return null;
+            URLConnection connection = url.openConnection();
+            connection.setUseCaches(false);
+            return connection.getInputStream();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
