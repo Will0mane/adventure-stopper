@@ -18,13 +18,13 @@ public class StopperCommandsBukkit {
 
     @Subcommand("now")
     @CommandPermission("adventure.stopper.now")
-    public void now(BukkitCommandActor actor, long credentials, @Default("ALL") @Flag String server) {
+    public void now(BukkitCommandActor actor, String credentials, @Default("ALL") @Flag String server) {
         utils.nowUtils(new CommandUserBukkit(actor), server, credentials);
     }
 
     @Subcommand("after")
     @CommandPermission("adventure.stopper.after")
-    public void after(BukkitCommandActor actor, long credentials, long ticks, @Default("ALL") @Flag String server) {
+    public void after(BukkitCommandActor actor, String credentials, long ticks, @Default("ALL") @Flag String server) {
         utils.afterUtils(new CommandUserBukkit(actor), server, credentials, ticks);
     }
 

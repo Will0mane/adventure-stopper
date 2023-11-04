@@ -16,11 +16,11 @@ public class StopperUtils {
         worker = adventure.workerFactory().craft();
     }
 
-    public void nowUtils(CommandUser user, String server, long credentials) {
+    public void nowUtils(CommandUser user, String server, String credentials) {
         stop(user, server, Credential.of(credentials));
     }
 
-    public void afterUtils(CommandUser user, String server, long credentials, long time) {
+    public void afterUtils(CommandUser user, String server, String credentials, long time) {
         user.message("Server will stop in " + time + " ticks...");
 
         worker.later(workerTaskWorker -> {

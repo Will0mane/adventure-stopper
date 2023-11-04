@@ -18,13 +18,13 @@ public class StopperCommandsVel {
 
     @Subcommand("now")
     @CommandPermission("adventure.stopper.now")
-    public void now(VelocityCommandActor actor, long credentials, @Default("ALL") @Flag String server) {
+    public void now(VelocityCommandActor actor, String credentials, @Default("ALL") @Flag String server) {
         utils.nowUtils(new CommandUserVelocity(actor), server, credentials);
     }
 
     @Subcommand("after")
     @CommandPermission("adventure.stopper.after")
-    public void after(VelocityCommandActor actor, long credentials, long ticks, @Default("ALL") @Flag String server) {
+    public void after(VelocityCommandActor actor, String credentials, long ticks, @Default("ALL") @Flag String server) {
         utils.afterUtils(new CommandUserVelocity(actor), server, credentials, ticks);
     }
 
