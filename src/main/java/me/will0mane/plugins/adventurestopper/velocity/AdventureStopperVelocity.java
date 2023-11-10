@@ -8,6 +8,7 @@ import me.will0mane.plugins.adventure.api.communication.handler.AddonMessageHand
 import me.will0mane.plugins.adventure.velocity.addon.AdventureAddonVelocity;
 import me.will0mane.plugins.adventure.velocity.addon.handler.def.DefaultVelocityHandler;
 import me.will0mane.plugins.adventurestopper.lamp.StopperCommandsVel;
+import me.will0mane.plugins.adventurestopper.velocity.handler.StopperHandlerVelocity;
 import org.jetbrains.annotations.NotNull;
 import revxrsal.commands.velocity.VelocityCommandHandler;
 
@@ -24,7 +25,7 @@ import java.net.URLConnection;
         authors = {"Will0mane"})
 public class AdventureStopperVelocity extends AdventureAddonVelocity {
 
-    private final AddonMessageHandler handler = new DefaultVelocityHandler(this);
+    private final AddonMessageHandler handler = new StopperHandlerVelocity(this);
     private LampWrapper lampWrapper;
 
     private final ProxyServer server;

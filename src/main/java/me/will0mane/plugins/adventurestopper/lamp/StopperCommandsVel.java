@@ -28,4 +28,9 @@ public class StopperCommandsVel {
         utils.afterUtils(new CommandUserVelocity(actor), server, credentials, ticks);
     }
 
+//    @Subcommand("replytest")
+//    public void replyTest(VelocityCommandActor actor, String server) {
+//        utils.sendTest(new CommandUserVelocity(actor), server);
+//    }
+
 }

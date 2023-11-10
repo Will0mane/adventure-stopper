@@ -28,4 +28,9 @@ public class StopperCommandsBukkit {
         utils.afterUtils(new CommandUserBukkit(actor), server, credentials, ticks);
     }
 
+//    @Subcommand("replytest")
+//    public void replyTest(BukkitCommandActor actor, String server) {
+//        utils.sendTest(new CommandUserBukkit(actor), server);
+//    }
+
 }
