@@ -1,10 +1,10 @@
 package me.will0mane.plugins.adventurestopper.lamp;
 
-import me.will0mane.lib.uranus.worker.Worker;
 import me.will0mane.plugins.adventure.api.addon.targs.external.GlobalTarget;
 import me.will0mane.plugins.adventure.api.commands.lamp.sender.CommandUser;
 import me.will0mane.plugins.adventure.api.communication.method.MessageMethod;
 import me.will0mane.plugins.adventure.api.modules.secure.credentials.Credential;
+import me.will0mane.plugins.adventure.api.modules.uranus.worker.Worker;
 import me.will0mane.plugins.adventure.api.plugin.Adventure;
 import me.will0mane.plugins.adventure.commons.communication.defaults.BaseAdventureMessage;
 
