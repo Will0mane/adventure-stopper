@@ -1,7 +1,7 @@
 package me.will0mane.plugins.adventurestopper.lamp;
 
-import me.will0mane.plugins.adventure.api.plugin.Adventure;
-import me.will0mane.plugins.adventure.bukkit.commands.CommandUserBukkit;
+import me.will0mane.plugins.pulse.api.plugin.Pulse;
+import me.will0mane.plugins.pulse.bukkit.commands.CommandUserBukkit;
 import revxrsal.commands.annotation.Command;
 import revxrsal.commands.annotation.Default;
 import revxrsal.commands.annotation.Flag;
@@ -13,7 +13,7 @@ import revxrsal.commands.bukkit.annotation.CommandPermission;
 @CommandPermission("adventure.stopper")
 public class StopperCommandsBukkit {
 
-    private final Adventure adventure = Adventure.instance();
+    private final Pulse adventure = Pulse.instance();
     private final StopperUtils utils = new StopperUtils(adventure);
 
     @Subcommand("now")

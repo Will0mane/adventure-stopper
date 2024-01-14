@@ -22,8 +22,10 @@ repositories {
         url = uri('https://repo.papermc.io/repository/maven-public/')
     }
 
+    maven { url = 'https://jitpack.io' }
+
     maven {
-        url = uri("http://repo.willomane.com/repository/Adventure-API/")
+        url = uri("http://repo.willomane.com/repository/Pulse-API/")
         allowInsecureProtocol(true)
     }
 }
@@ -35,7 +37,10 @@ dependencies {
     compileOnly 'com.velocitypowered:velocity-api:3.2.0-SNAPSHOT'
     annotationProcessor("com.velocitypowered:velocity-api:3.2.0-SNAPSHOT")
 
-    compileOnly 'me.will0mane.plugins:Adventure-API:1.0.2.4:all'
+    compileOnly 'com.github.Revxrsal.Lamp:bukkit:3.1.5'
+    implementation 'com.github.Revxrsal.Lamp:velocity:3.1.5'
+
+    compileOnly 'me.will0mane.plugins:Pulse-API:latest:all'
 }
 
 def targetJavaVersion = 17

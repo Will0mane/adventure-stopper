@@ -3,5 +3,5 @@ version: '${version}'
 main: me.will0mane.plugins.adventurestopper.bukkit.AdventureStopperBukkit
 authors: [ Will0mane ]
 depend:
-  - Adventure
+  - Pulse
 description: Enables command to automatically stop all instances of adventure with right credential

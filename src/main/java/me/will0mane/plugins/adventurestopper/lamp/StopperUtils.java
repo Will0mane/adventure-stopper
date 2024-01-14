@@ -1,19 +1,19 @@
 package me.will0mane.plugins.adventurestopper.lamp;
 
-import me.will0mane.plugins.adventure.api.addon.targs.external.GlobalTarget;
-import me.will0mane.plugins.adventure.api.commands.lamp.sender.CommandUser;
-import me.will0mane.plugins.adventure.api.communication.method.MessageMethod;
-import me.will0mane.plugins.adventure.api.modules.secure.credentials.Credential;
-import me.will0mane.plugins.adventure.api.modules.uranus.worker.Worker;
-import me.will0mane.plugins.adventure.api.plugin.Adventure;
-import me.will0mane.plugins.adventure.commons.communication.defaults.BaseAdventureMessage;
+import me.will0mane.plugins.pulse.api.addon.targs.external.GlobalTarget;
+import me.will0mane.plugins.pulse.api.commands.lamp.sender.CommandUser;
+import me.will0mane.plugins.pulse.api.communication.method.MessageMethod;
+import me.will0mane.plugins.pulse.api.modules.secure.credentials.Credential;
+import me.will0mane.plugins.pulse.api.modules.uranus.worker.Worker;
+import me.will0mane.plugins.pulse.api.plugin.Pulse;
+import me.will0mane.plugins.pulse.commons.communication.defaults.BasePulseMessage;
 
 public class StopperUtils {
 
-    private final Adventure adventure;
+    private final Pulse adventure;
     private final Worker<?> worker;
 
-    public StopperUtils(Adventure adventure) {
+    public StopperUtils(Pulse adventure) {
         this.adventure = adventure;
 
         worker = adventure.workerFactory().craft();
@@ -37,7 +37,7 @@ public class StopperUtils {
     }
 
     public void sendTest(CommandUser user, String server) {
-        adventure.messageHandler().send(new BaseAdventureMessage(adventure.getGlobalAddress(), GlobalTarget.of(server + "#" + "AdventureStopper"), "stopper", "main", MessageMethod.GET));
+        adventure.messageHandler().send(new BasePulseMessage(adventure.getGlobalAddress(), GlobalTarget.of(server + "#" + "AdventureStopper"), "stopper", MessageMethod.GET));
         user.message("Sending msg!");
     }
 

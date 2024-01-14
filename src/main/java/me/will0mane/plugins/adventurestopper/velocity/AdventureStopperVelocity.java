@@ -3,12 +3,11 @@ package me.will0mane.plugins.adventurestopper.velocity;
 import com.google.inject.Inject;
 import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.proxy.ProxyServer;
-import me.will0mane.plugins.adventure.api.commands.lamp.LampWrapper;
-import me.will0mane.plugins.adventure.api.communication.handler.AddonMessageHandler;
-import me.will0mane.plugins.adventure.velocity.addon.AdventureAddonVelocity;
-import me.will0mane.plugins.adventure.velocity.addon.handler.def.DefaultVelocityHandler;
 import me.will0mane.plugins.adventurestopper.lamp.StopperCommandsVel;
 import me.will0mane.plugins.adventurestopper.velocity.handler.StopperHandlerVelocity;
+import me.will0mane.plugins.pulse.api.commands.lamp.LampWrapper;
+import me.will0mane.plugins.pulse.api.communication.handler.AddonMessageHandler;
+import me.will0mane.plugins.pulse.velocity.addon.PAddonVelocity;
 import org.jetbrains.annotations.NotNull;
 import revxrsal.commands.velocity.VelocityCommandHandler;
 
@@ -23,7 +22,7 @@ import java.net.URLConnection;
         url = "https://github.com/Will0mane/Adventure",
         description = "Allows to shutdown server easily",
         authors = {"Will0mane"})
-public class AdventureStopperVelocity extends AdventureAddonVelocity {
+public class AdventureStopperVelocity extends PAddonVelocity {
 
     private final AddonMessageHandler handler = new StopperHandlerVelocity(this);
     private LampWrapper lampWrapper;

@@ -1,19 +1,19 @@
 package me.will0mane.plugins.adventurestopper.lamp;
 
-import me.will0mane.plugins.adventure.api.plugin.Adventure;
-import me.will0mane.plugins.adventure.velocity.commands.CommandUserVelocity;
+import me.will0mane.plugins.pulse.api.plugin.Pulse;
+import me.will0mane.plugins.pulse.velocity.commands.CommandUserVelocity;
 import revxrsal.commands.annotation.Command;
 import revxrsal.commands.annotation.Default;
 import revxrsal.commands.annotation.Flag;
 import revxrsal.commands.annotation.Subcommand;
+import revxrsal.commands.bukkit.annotation.CommandPermission;
 import revxrsal.commands.velocity.VelocityCommandActor;
-import revxrsal.commands.velocity.annotation.CommandPermission;
 
 @Command("advstop")
 @CommandPermission("adventure.stopper")
 public class StopperCommandsVel {
 
-    private final Adventure adventure = Adventure.instance();
+    private final Pulse adventure = Pulse.instance();
     private final StopperUtils utils = new StopperUtils(adventure);
 
     @Subcommand("now")
