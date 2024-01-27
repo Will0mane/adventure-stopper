@@ -1,6 +1,7 @@
 package me.will0mane.plugins.adventurestopper.velocity;
 
 import com.google.inject.Inject;
+import com.velocitypowered.api.plugin.Dependency;
 import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.proxy.ProxyServer;
 import me.will0mane.plugins.adventurestopper.lamp.StopperCommandsVel;
@@ -21,6 +22,7 @@ import java.net.URLConnection;
         version = "1.0.0.0",
         url = "https://github.com/Will0mane/Adventure",
         description = "Allows to shutdown server easily",
+        dependencies = { @Dependency(id = "pulse")},
         authors = {"Will0mane"})
 public class AdventureStopperVelocity extends PAddonVelocity {
 
